@@ -1,0 +1,30 @@
+﻿{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "Environment": "PROD",
+  "AllowedHosts": "*",
+  "cert_thum_print": "f45247610dd86deb34c1c9d010f1fcbbb130b661",
+  "IdentityServer": {
+    "IssuerUri": "http://103.198.8.149:44375",
+    "Clients": [
+      {
+        "Enabled": true,
+        "ClientId": "ng_client",
+        "ClientName": "JavaScript Client",
+        "AllowedGrantTypes": [ "authorization_code" ],
+        "RequirePkce": true,
+        "RequireConsent": false,
+        "RequireClientSecret": false,
+        "AllowedScopes": [ "openid", "profile", "RoleManager.API", "Reporting.API" ],
+        "RedirectUris": [ "http://103.198.8.149:4200/auth-callback" ],
+        "PostLogoutRedirectUris": [ "http://103.198.8.149:4200" ],
+        "AllowedCorsOrigins": "http://103.198.8.149:4200"
+      }
+    ]
+  }
+}

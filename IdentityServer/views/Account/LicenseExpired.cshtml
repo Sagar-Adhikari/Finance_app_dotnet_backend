@@ -1,0 +1,103 @@
+﻿@model IdentityServer.views.LicenseExpiredModel
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome-min.css" rel="stylesheet" />
+    <script src="~/js/bootstrap.min.js"></script>
+    <div class="row-flex main">
+        <h3 style="color:tomato;">Pearsl Web License Issue</h3>
+    </div>
+
+    <div class="row-flex main">
+        <div class="column-flex">
+            <div class="container">
+                <p class="lead">One Step Solution <span class="text-success">Almost FREE</span></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="fa fa-check-circle"></i> &nbsp Complete Accounting</li>
+                <li class="list-group-item"><i class="fa fa-check-circle"></i> &nbsp Fast re-order</li>
+                <li class="list-group-item"><i class="fa fa-check-circle"></i> &nbsp Save your favorites</li>
+                <li class="list-group-item"><i class="fa fa-check-circle"></i> &nbsp Fast checkout</li>
+                <li class="list-group-item"><i class="fa fa-check-circle"></i> &nbsp Get a gift <small>(only new customers)</small></li>
+
+            </ul>
+            <br> <br>
+
+            <p>
+                <div class="text text-center">
+                    <a href="#">
+                        <span class="fa fa-info"></span> Get more information
+                    </a>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="#">
+                        <span class="fa fa-lock"></span> Client Area
+                    </a>
+                </div>
+            </p>
+            <p class="text text-center">
+                <a href="https://www.facebook.com/nsits"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a> &nbsp
+                <a href="https://twitter.com/nsits"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>&nbsp
+                <a href="https://plus.google.com/nsits"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>&nbsp
+                <a href="mailto:info@nsits.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+            </p>
+
+        </div>
+        <div class="column-flex card">
+            <div class="container">
+                @if (Model == null)
+                {
+                    <h2 style="color:tomato">Unable to read License file!</h2>
+                }
+                else if (Model.ValidationFailures == null)
+                {
+                    <h2 style="color:tomato">@Model.ErrorMessage</h2>
+                }
+                else
+                {
+                    foreach (var vf in Model.ValidationFailures)
+                    {
+                    <div>
+                        <h2 style="color:tomato">@vf.Message</h2>
+                        <p>@vf.HowToResolve</p>
+                    </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <style>
+
+        .fa-check-circle {
+            color: #28a745;
+        }
+
+        .social_Icons {
+            color: teal;
+        }
+
+        .main {
+            margin: 24.0px;
+            padding: 24.0px;
+        }
+
+        .row-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .column-flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            margin: 24.0px;
+            padding: 24.0px;
+            width: 500px;
+            height: 450px;
+        }
+    </style>
